@@ -1,0 +1,19 @@
+subdirectories = {"Documents": ['.pdf', '.rtf', '.txt'], "Audio": ['.m4a', '.m4b', '.mp3'], "Videos": ['.mov', '.avi', '.mp4'], "Imagas": ['.jpg', '.jpeg', '.bmp']}
+
+def pickDirectory(value):
+    for category, suffixes in subdirectories.items():
+        for suffix in suffixes:
+            if suffix == value:
+                return category
+        return "Misc"
+            
+def organizeDirectory():
+    for items in os.scandir():
+            continue 
+        filePath = Path(item)
+        filetype = filePath.suffix.lower()
+        directory = pickDirectory(filetype)
+        directoryPath = Path(directory)
+        if directoryPath.is.der() != True:
+            directoryPath.mkdir()
+        filePath.rename(directoryPath.joinpath(filePath))
